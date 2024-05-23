@@ -1,0 +1,50 @@
+.loading-label {
+  color: var(--main-fg-color);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.loading-progress {
+  width: 10em;
+  height: 1.3em;
+  border: solid var(--main-bg-color);
+  border-width: 0 0.5em;
+  border-radius: 0.3em;
+  background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.3) 5%,
+      rgba(0, 0, 0, 0.2) 25%,
+      rgba(0, 0, 0, 0.1) 25%,
+      rgba(0, 0, 0, 0.1) 35%,
+      rgba(211, 211, 211, 0.1) 45%,
+      rgba(211, 211, 211, 0.1) 60%,
+      rgba(255, 255, 255, 0.6) 60%,
+      rgba(255, 255, 255, 0.6) 80%,
+      rgba(211, 211, 211, 0.1) 80%,
+      rgba(211, 211, 211, 0.1) 95%
+    ),
+    linear-gradient(transparent 85%, rgba(0, 0, 0, 0.1) 95%),
+    repeating-linear-gradient(
+      -45deg,
+      darkred,
+      darkred 10px,
+      white 11px,
+      white 20px,
+      darkblue 21px,
+      darkblue 30px,
+      white 31px,
+      white 40px
+    );
+  background-size: auto, auto, 300% 100%;
+  animation: flow-horizontally 3s infinite linear reverse;
+}
+
+@keyframes flow-horizontally {
+  100% {
+    background-position: -7em 0;
+  }
+}

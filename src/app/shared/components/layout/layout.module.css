@@ -1,0 +1,6 @@
+.container {
+  background: linear-gradient(180deg, #212226 0%, #000000 100%);
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
+}

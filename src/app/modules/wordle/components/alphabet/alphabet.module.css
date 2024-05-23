@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 4px;
+  color: var(--main-fg-color);
+}
+
+.no-alphabet-container {
+  border: 2px solid var(--main-bg-color);
+}
+
+.correct-position {
+  background-color: #538d4e;
+}
+
+.incorrect-position {
+  background-color: #bea11f;
+}
+
+.not-found {
+  background-color: var(--main-bg-color);
+}
+
+.alphabet {
+  font-weight: 700;
+  font-size: 2rem;
+}
