@@ -12,8 +12,14 @@
  * @param max - end integer of the range
  * @returns
  */
-const getRandomInt = (min: number, max: number): number =>
-  Math.floor(min + (max - min + 1) * Math.random());
+const getRandomInteger = (min: number, max: number): number => {
+  // Validate input args
+  if (max - min <= 0) {
+    throw new Error(`'min' must be smaller than 'max'`);
+  }
+
+  return Math.floor(min + (max - min + 1) * Math.random());
+};
 
 /**
  * @public
@@ -27,14 +33,26 @@ const getRandomInt = (min: number, max: number): number =>
  *                             between the provided range
  * @returns
  */
-const getRandomNumbers = (
+const getRandomIntegers = (
   min: number,
   max: number,
   totalRandomNumbers: number
 ): number[] => {
   // Validate input args
+  if (
+    !Number.isInteger(min) ||
+    !Number.isInteger(max) ||
+    !Number.isInteger(totalRandomNumbers)
+  ) {
+    throw new Error(`min/max/totalRandomNumbers values must be valid integers`);
+  }
+
+  if (totalRandomNumbers <= 0) {
+    throw new Error(`'totalRandomNumbers' value must be a positive integer`);
+  }
+
   if (max - min <= 0) {
-    throw new Error(`Invalid min/max provided`);
+    throw new Error(`'min' must be smaller than 'max'`);
   }
 
   if (totalRandomNumbers > max - min + 1) {
@@ -48,7 +66,7 @@ const getRandomNumbers = (
   const randomNumbers = new Set<number>();
 
   while (randomNumbers.size !== totalRandomNumbers) {
-    const randomNumber = getRandomInt(min, max);
+    const randomNumber = getRandomInteger(min, max);
 
     if (!randomNumbers.has(randomNumber)) {
       randomNumbers.add(randomNumber);
@@ -58,4 +76,4 @@ const getRandomNumbers = (
   return Array.from(randomNumbers);
 };
 
-export { getRandomNumbers, getRandomInt };
+export { getRandomIntegers, getRandomInteger };

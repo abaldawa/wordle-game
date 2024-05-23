@@ -4,6 +4,13 @@
 
 import { shuffle } from "./array";
 
+const TOTAL_ALPHABETS_COUNT = 26;
+
+// All alphabets from A - Z
+const allAlphabets = Array.from({ length: TOTAL_ALPHABETS_COUNT }, (_, index) =>
+  String.fromCharCode(65 + index)
+);
+
 /**
  * @public
  *
@@ -42,10 +49,16 @@ const getRandomizedAlphabets = (
   word: string,
   noOfRandomAlphabetsToAdd: number
 ): string[] => {
-  // Get all alphabets from A - Z
-  const allAlphabets = Array.from({ length: 26 }, (_, index) =>
-    String.fromCharCode(65 + index)
-  );
+  // validate input args
+  if (
+    !Number.isInteger(noOfRandomAlphabetsToAdd) ||
+    noOfRandomAlphabetsToAdd <= 0 ||
+    noOfRandomAlphabetsToAdd > TOTAL_ALPHABETS_COUNT
+  ) {
+    throw new Error(
+      `'noOfRandomAlphabetsToAdd' must be an integer between 1 - 26`
+    );
+  }
 
   // Shuffle all the alphabets and get the random alphabets
   const randomAlphabetsToAdd = shuffle(allAlphabets).slice(

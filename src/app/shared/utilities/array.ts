@@ -2,7 +2,7 @@
  * @author Abhijit Baldawa
  */
 
-import { getRandomNumbers } from "./number";
+import { getRandomIntegers } from "./number";
 
 /**
  * @public
@@ -14,7 +14,11 @@ import { getRandomNumbers } from "./number";
  * @returns
  */
 const shuffle = <Item>(array: Item[]): Item[] => {
-  const randomArrayIndexes = getRandomNumbers(
+  if (array.length <= 1) {
+    return array;
+  }
+
+  const randomArrayIndexes = getRandomIntegers(
     0,
     array.length - 1,
     array.length
