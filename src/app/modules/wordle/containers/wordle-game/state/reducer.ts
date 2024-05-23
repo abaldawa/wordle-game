@@ -185,6 +185,7 @@ const wordleGameReducer = (
 
       let gameStatus: WordleGameState["gameStatus"];
 
+      // Check if the guessed word is correct
       if (state.guessedWord === state.originalWord) {
         gameStatus = "won";
       } else if (totalAttempts >= state.maxAttempts) {
@@ -192,8 +193,6 @@ const wordleGameReducer = (
       } else {
         gameStatus = "in-progress";
       }
-
-      // Check if the guessed word is correct
 
       return {
         ...state,
