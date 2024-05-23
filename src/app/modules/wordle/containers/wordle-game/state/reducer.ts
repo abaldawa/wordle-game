@@ -183,24 +183,24 @@ const wordleGameReducer = (
 
       const totalAttempts = state.totalAttempts + 1;
 
-      // Check if the guessed word is correct
+      let gameStatus: WordleGameState["gameStatus"];
+
       if (state.guessedWord === state.originalWord) {
-        return {
-          ...state,
-          gameStatus: "won",
-          totalAttempts,
-          alphabetConfigs,
-          error: undefined,
-          guessedWord: "",
-        };
+        gameStatus = "won";
+      } else if (totalAttempts >= state.maxAttempts) {
+        gameStatus = "lost";
+      } else {
+        gameStatus = "in-progress";
       }
+
+      // Check if the guessed word is correct
 
       return {
         ...state,
         alphabetConfigs,
         guessedWord: "",
         error: undefined,
-        gameStatus: totalAttempts >= state.maxAttempts ? "lost" : "in-progress",
+        gameStatus,
         totalAttempts,
       };
     }
