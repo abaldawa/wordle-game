@@ -23,7 +23,7 @@ Node.js (20.x or higher)
 1. `git clone https://github.com/abaldawa/wordle-game.git`
 2. `cd wordle-game`
 3. execute `npm i`
-4. execute `npm start` (This will start the frontend react dev server)
+4. execute `npm run dev` (This will start the frontend react dev server)
 5. Go to `http://localhost:5173` to see the UI
 
 ### User interface
