@@ -15,7 +15,7 @@ const Alphabets: React.FC<AlphabetsProps> = (props) => {
   const { alphabetConfigs, onKeyPressHandler, focusOnBoard } = props;
 
   return (
-    <article
+    <ul
       tabIndex={1}
       ref={(r) => {
         focusOnBoard && r?.focus();
@@ -26,7 +26,7 @@ const Alphabets: React.FC<AlphabetsProps> = (props) => {
       {alphabetConfigs.map((alphabetConfig) => (
         <Alphabet key={alphabetConfig.id} alphabetConfig={alphabetConfig} />
       ))}
-    </article>
+    </ul>
   );
 };
 

@@ -103,7 +103,6 @@ const WordleGame: React.FC = () => {
           title={gameResultDescription[gameStatus].title}
           description={gameResultDescription[gameStatus].description}
           actionButton={{
-            focus: true,
             text: gameResultDescription[gameStatus].actionButtonText,
             onClick: replayGame,
           }}

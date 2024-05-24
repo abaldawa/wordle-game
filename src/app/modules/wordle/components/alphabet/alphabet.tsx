@@ -32,9 +32,9 @@ const Alphabet: React.FC<AlphabetProps> = ({ alphabetConfig }) => {
   }
 
   return (
-    <article className={containerClassName}>
+    <li className={containerClassName}>
       {!!alphabet && <span className={styles.alphabet}>{alphabet}</span>}
-    </article>
+    </li>
   );
 };
 
