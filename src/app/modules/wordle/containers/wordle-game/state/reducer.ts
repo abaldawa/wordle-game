@@ -171,9 +171,9 @@ const wordleGameReducer = (
         };
       }
 
-      const alphabetsRow = structuredClone([
-        ...(state.alphabetConfigs[state.currentRowIndex] as AlphabetConfig[]),
-      ]);
+      const alphabetsRow = structuredClone(
+        state.alphabetConfigs[state.currentRowIndex] as AlphabetConfig[]
+      );
 
       // Validate guessed word with original word
       const { guessedWord, originalWord } = state;
