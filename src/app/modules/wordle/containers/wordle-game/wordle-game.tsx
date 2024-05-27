@@ -4,12 +4,10 @@
 
 import { useEffect, useReducer } from "react";
 import { getRandomWord } from "../../../../shared/services/word";
-import { getRandomizedAlphabets } from "../../../../shared/utilities/word";
-import { shuffle } from "../../../../shared/utilities/array";
 import { GameResult } from "../../components/game-result/game-result";
 import styles from "./wordle-game.module.css";
 import { Alphabets } from "../../components/alphabets/alphabets";
-import { WordleGameState, initialWordleGameState } from "./state/state";
+import { WORD_LENGTH, initialWordleGameState } from "./state/state";
 import { wordleGameReducer } from "./state/reducer";
 import { gameResultDescription } from "./constants";
 import { Loading } from "../../../../shared/components/loading/loading";
@@ -42,32 +40,11 @@ const WordleGame: React.FC = () => {
     try {
       dispatch({ type: "loading" });
 
-      const word = await getRandomWord(5);
-
-      // Mix the 5 length word with other 5 length random alphabets
-      const randomizedAlphabets = getRandomizedAlphabets(word, 5);
-
-      // Add 15 other empty slots and shuffle them with random alphabets
-      const alphabets = shuffle<string | undefined>(
-        randomizedAlphabets.concat(new Array(15).fill(undefined))
-      );
+      const word = await getRandomWord(WORD_LENGTH);
 
       dispatch({
         type: "set-game-state",
-        originalWord: word.toUpperCase(),
-        alphabetConfigs: alphabets.map(
-          (item): WordleGameState["alphabetConfigs"][number] =>
-            item
-              ? {
-                  type: "alphabet",
-                  alphabet: item,
-                  id: crypto.randomUUID(),
-                }
-              : {
-                  type: "no-alphabet",
-                  id: crypto.randomUUID(),
-                }
-        ),
+        originalWord: word,
       });
     } catch (error: unknown) {
       dispatch({ type: "error", error });

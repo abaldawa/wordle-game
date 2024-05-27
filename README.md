@@ -30,4 +30,4 @@ Node.js (20.x or higher)
 
 Below video demonstrates how the UI looks like and its functionality.
 
-https://github.com/abaldawa/wordle-game/assets/5449692/43473f8f-ad6b-4e16-a31e-5e04756cbc0b
+https://github.com/abaldawa/wordle-game/assets/5449692/a62df892-88bb-4af6-83de-ccf7dfb99734

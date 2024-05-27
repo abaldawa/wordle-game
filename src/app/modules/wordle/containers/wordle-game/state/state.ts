@@ -18,9 +18,8 @@ interface WordleGameState {
   loading: boolean;
   readonly originalWord: string;
   guessedWord: string;
-  alphabetConfigs: (AlphabetConfig | NoAlphabetConfig)[];
-  totalAttempts: number;
-  readonly maxAttempts: number;
+  currentRowIndex: number;
+  alphabetConfigs: (AlphabetConfig | NoAlphabetConfig)[][];
   gameStatus: "in-progress" | "won" | "lost";
   error?: {
     message: string;
@@ -28,16 +27,16 @@ interface WordleGameState {
 }
 
 const MAX_ATTEMPTS = 5;
+const WORD_LENGTH = 5;
 
 const initialWordleGameState = {
   loading: false,
   originalWord: "",
   guessedWord: "",
+  currentRowIndex: 0,
   gameStatus: "in-progress",
-  totalAttempts: 0,
-  maxAttempts: MAX_ATTEMPTS,
   alphabetConfigs: [],
 } as const satisfies WordleGameState;
 
-export type { AlphabetConfig, WordleGameState };
-export { initialWordleGameState };
+export type { AlphabetConfig, NoAlphabetConfig, WordleGameState };
+export { WORD_LENGTH, MAX_ATTEMPTS, initialWordleGameState };

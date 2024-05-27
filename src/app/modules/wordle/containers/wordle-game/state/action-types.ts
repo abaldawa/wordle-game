@@ -2,8 +2,6 @@
  * @author Abhijit Baldawa
  */
 
-import { WordleGameState } from "./state";
-
 interface AlphabetGuessed {
   type: "alphabet-guessed";
   alphabet: string;
@@ -33,7 +31,6 @@ interface SetGameStateError {
 interface SetGameStateAction {
   type: "set-game-state";
   originalWord: string;
-  alphabetConfigs: WordleGameState["alphabetConfigs"];
 }
 
 type WordleGameActionTypes =

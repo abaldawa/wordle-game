@@ -6,7 +6,7 @@ import type { WordleGameState } from "../../containers/wordle-game/state/state";
 import styles from "./alphabet.module.css";
 
 interface AlphabetProps {
-  alphabetConfig: WordleGameState["alphabetConfigs"][number];
+  alphabetConfig: WordleGameState["alphabetConfigs"][number][number];
 }
 
 const Alphabet: React.FC<AlphabetProps> = ({ alphabetConfig }) => {

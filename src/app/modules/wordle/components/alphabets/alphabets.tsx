@@ -23,9 +23,11 @@ const Alphabets: React.FC<AlphabetsProps> = (props) => {
       className={styles.container}
       onKeyUp={onKeyPressHandler}
     >
-      {alphabetConfigs.map((alphabetConfig) => (
-        <Alphabet key={alphabetConfig.id} alphabetConfig={alphabetConfig} />
-      ))}
+      {alphabetConfigs.map((alphabetConfigsRow) =>
+        alphabetConfigsRow.map((alphabetConfig) => (
+          <Alphabet key={alphabetConfig.id} alphabetConfig={alphabetConfig} />
+        ))
+      )}
     </ul>
   );
 };
